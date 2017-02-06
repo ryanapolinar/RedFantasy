@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 public class SelectorControl : MonoBehaviour {
 	private Vector3 position;
-	//private bool justPressed;
 	private string[] commands = new string[4]{"attack", "skill", "item", "defend"};
 	private int command_index = 0;
 	public Text actionText;
 	public float move_val;
 
-	// Initializes position, frames and text variables
+	// Initializes position, text and movement spacing variables
 	void Start () {
 		position = transform.position;
 		actionText.text = "Player is choosing an action";
@@ -19,8 +18,7 @@ public class SelectorControl : MonoBehaviour {
 
 
 	}
-
-	//Increments frames
+		
 	//Changes action text based on chosen command
 	void Update () {
 		Movement ();
