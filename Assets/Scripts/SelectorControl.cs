@@ -5,112 +5,76 @@ using UnityEngine.UI;
 
 public class SelectorControl : MonoBehaviour {
 	private Vector3 position;
-	private bool justPressed;
-	private bool selected;
-	private bool onAttack;
-	private bool onSkill;
-	private bool onItem;
-	private bool onDefend;
-	private int frames;
-
+	//private bool justPressed;
+	private string[] commands = new string[4]{"attack", "skill", "item", "defend"};
+	private int command_index = 0;
 	public Text actionText;
+	public float move_val;
 
 	// Initializes position, frames and text variables
 	void Start () {
-		position = this.transform.position;
-		justPressed = false;
-		frames = Time.frameCount;
+		position = transform.position;
 		actionText.text = "Player is choosing an action";
+		move_val = 4.5f;
 
 
 	}
 
 	//Increments frames
 	//Changes action text based on chosen command
-	void FixedUpdate () {
+	void Update () {
 		Movement ();
-		frames++;
-		selected = Input.GetKey ("z");
-		if (selected) {
-			if (onAttack) {
+		string command = commands [command_index];
+		if (Input.GetKeyDown("z")) {
+			if (command == "attack") {
 				actionText.text = "Player attacks!";
-			} else if (onSkill) {
+				//insert attack function
+			} else if (command == "skill") {
 				actionText.text = "Player uses a skill!";
-			} else if (onItem) {
+				//insert skill function
+			} else if (command == "item") {
 				actionText.text = "Player uses an item!";
-			} else if (onDefend) {
+				//insert item function
+			} else if (command == "defend") {
 				actionText.text = "Player defends!";
+				//insert defend function
 			}
 		}
 	}
 
-	//Sets corresponding boolean for command to true and all others to false on collision
-	void OnTriggerStay2D (Collider2D other)
-	{
-		if (other.gameObject.CompareTag ("attack")) {
-			onAttack = true;
-			onSkill = false;
-			onItem = false;
-			onDefend = false;
-		} else if (other.gameObject.CompareTag ("skill")) {
-			onAttack = false;
-			onSkill = true;
-			onItem = false;
-			onDefend = false;
-		}
-		else if (other.gameObject.CompareTag ("item")){
-			onAttack = false;
-			onSkill = false;
-			onItem = true;
-			onDefend = false;
-		}
-		else if (other.gameObject.CompareTag ("defend")){
-			onAttack = false;
-			onSkill = false;
-			onItem = false;
-			onDefend = true;
-		}
-	}
+
 
 	//Shifts selector up/down depending on input
 	void Movement() {
-		
-		if (Input.GetKey ("w") && !justPressed) {
+		if (Input.GetKeyDown ("up")) {
 			ShiftUp ();
-			justPressed = true;
-		} else if (Input.GetKey ("s") && !justPressed) {
+		} else if (Input.GetKeyDown ("down")) {
 			ShiftDown ();
-			justPressed = true;
-		} else {
-			Wait();
-		}
+		} 
 	}
 		
 	void ShiftUp(){
-			if (position.y < 24) {
-				position.y += 12;
-			} else if (position.y == 24) {
-				position.y = -12;
-			}
-		this.transform.position = position;
-		Wait ();
+		if (command_index > 0) {
+			position.y += move_val;
+			transform.position = position;
+			command_index -= 1;
+		} else {
+			position.y -= (move_val * 3);
+			transform.position = position;
+			command_index = 3;
+		}
 	}
 
 	void ShiftDown(){
-		if (position.y > -12) {
-			position.y -= 12;
-		} else if (position.y == -12) {
-			position.y = 24;
+		if (command_index < 3) {
+			position.y -= move_val;
+			transform.position = position;
+			command_index += 1;
+		} else {
+			position.y += (move_val * 3);
+			transform.position = position;
+			command_index = 0;
 		}
-		this.transform.position = position;
-		Wait ();
 	}
 
-	//Changes justPressed back to false after 20 frames have passed
-	void Wait(){
-			if(frames > 20){
-				justPressed = false;
-				frames = 0;
-			}
-	}
 }
