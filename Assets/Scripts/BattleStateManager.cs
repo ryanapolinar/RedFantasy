@@ -28,7 +28,7 @@ public class BattleStateManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
         if (Enemy.GetComponent<Enemy>().hp == 0)
         {
             currentState = BattleStates.Victory;
@@ -54,7 +54,7 @@ public class BattleStateManager : MonoBehaviour {
                 currentState = BattleStates.EnemyAction;
                 break;
             case (BattleStates.EnemyAction):
-                EnemyAttack.attacking = true;
+                EnemyAttack.myTurn = true;
                 break;
             case (BattleStates.Victory):
                 Debug.Log("VICTORY");
