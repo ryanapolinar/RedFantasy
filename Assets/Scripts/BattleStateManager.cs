@@ -6,6 +6,8 @@ public class BattleStateManager : MonoBehaviour {
     public GameObject Enemy;
     public GameObject Player;
 
+    public GameObject menu;
+
     public enum BattleStates
     {
         Start,
@@ -17,11 +19,11 @@ public class BattleStateManager : MonoBehaviour {
         Defeat
     }
 
-    public static BattleStates currentState = BattleStates.PlayerTurn;
+    public static BattleStates currentState = BattleStates.Start;
 
     // Use this for initialization
     void Start () {
-		currentState = BattleStates.PlayerTurn;
+		currentState = BattleStates.Start;
     }
 	
 	// Update is called once per frame
@@ -40,10 +42,13 @@ public class BattleStateManager : MonoBehaviour {
 		switch(currentState)
         {
             case (BattleStates.Start):
+                currentState = BattleStates.PlayerTurn;
                 break;
             case (BattleStates.PlayerTurn):
+                menu.SetActive(true);
                 break;
             case (BattleStates.PlayerAction):
+                menu.SetActive(false);
                 break;
             case (BattleStates.EnemyTurn):
                 currentState = BattleStates.EnemyAction;

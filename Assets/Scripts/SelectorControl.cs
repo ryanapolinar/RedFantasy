@@ -8,26 +8,26 @@ public class SelectorControl : MonoBehaviour {
 	private string[] commands = new string[4]{"attack", "skill", "item", "defend"};
 	private int command_index = 0;
 	public Text actionText;
-	public float move_val;
+	public float move_val = 4.5f;
+
+    public GameObject player;
 
 	// Initializes position, text and movement spacing variables
-	void Start () {
+	void Start() {
 		position = transform.position;
 		actionText.text = "Player is choosing an action";
-		move_val = 4.5f;
-
-
 	}
 		
 	//Changes action text based on chosen command
-	void Update () {
-		Movement ();
+	void Update() {
+		Movement();
 		string command = commands [command_index];
 		if (Input.GetKeyDown("z")) {
 			if (command == "attack") {
 				actionText.text = "Player attacks!";
-				//insert attack function
-			} else if (command == "skill") {
+                player.GetComponent<PlayerAttack>().attacking = true;
+                BattleStateManager.currentState = BattleStateManager.BattleStates.PlayerAction;
+            } else if (command == "skill") {
 				actionText.text = "Player uses a skill!";
 				//insert skill function
 			} else if (command == "item") {
@@ -44,10 +44,10 @@ public class SelectorControl : MonoBehaviour {
 
 	//Shifts selector up/down depending on input
 	void Movement() {
-		if (Input.GetKeyDown ("up")) {
-			ShiftUp ();
-		} else if (Input.GetKeyDown ("down")) {
-			ShiftDown ();
+		if (Input.GetKeyDown(KeyCode.UpArrow)) {
+			ShiftUp();
+		} else if (Input.GetKeyDown(KeyCode.DownArrow)) {
+            ShiftDown();
 		} 
 	}
 		

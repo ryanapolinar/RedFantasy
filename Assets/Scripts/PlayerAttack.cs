@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour {
     public GameObject Enemy;
     public float movementDuration = 3f;
-    public static bool attacking = false;
+    public bool attacking = false;
 
     private bool attacked = false;
     private float timePassed = 0f;
