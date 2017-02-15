@@ -7,11 +7,13 @@ public class BattleStateManager : MonoBehaviour {
     public GameObject Player;
 
     public GameObject menu;
+    public GameObject AtkMenu;
 
     public enum BattleStates
     {
         Start,
         PlayerTurn,
+        PlayerAttackSelection,
         PlayerAction,
         EnemyTurn,
         EnemyAction,
@@ -24,6 +26,7 @@ public class BattleStateManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		currentState = BattleStates.Start;
+        AtkMenu.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -47,8 +50,13 @@ public class BattleStateManager : MonoBehaviour {
             case (BattleStates.PlayerTurn):
                 menu.SetActive(true);
                 break;
+            case (BattleStates.PlayerAttackSelection):
+                //menu.SetActive(false);
+                AtkMenu.SetActive(true); //activate AtkMenu
+                break;
             case (BattleStates.PlayerAction):
-                menu.SetActive(false);
+                AtkMenu.SetActive(false);
+                menu.SetActive(false); //set AtkMenu to inactive 
                 break;
             case (BattleStates.EnemyTurn):
                 currentState = BattleStates.EnemyAction;

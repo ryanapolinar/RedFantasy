@@ -12,8 +12,8 @@ public class SelectorControl : MonoBehaviour {
 
     public GameObject player;
 
-	// Initializes position, text and movement spacing variables
-	void Start() {
+    // Initializes position, text and movement spacing variables
+    void Start() {
 		position = transform.position;
 		actionText.text = "Player is choosing an action";
 	}
@@ -25,6 +25,7 @@ public class SelectorControl : MonoBehaviour {
 		if (Input.GetKeyDown("z")) {
 			if (command == "attack") {
 				actionText.text = "Player attacks!";
+                //BattleStateManager.currentState = BattleStateManager.BattleStates.PlayerAttackSelection; 
                 player.GetComponent<PlayerAttack>().attacking = true;
                 BattleStateManager.currentState = BattleStateManager.BattleStates.PlayerAction;
             } else if (command == "skill") {
