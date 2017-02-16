@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class SelectorControl : MonoBehaviour {
 	private Vector3 position;
 	private string[] commands = new string[4]{"attack", "skill", "item", "defend"};
+	private string[] descriptions = new string[4]{"Performs a basic knife attack", "Use a skill that costs MP", "Use an item", "Take less damage next turn"};
 	private int command_index = 0;
 	public Text actionText;
+	public Text descriptionText;
 	public float move_val = 4.5f;
 
     public GameObject player;
@@ -22,6 +24,7 @@ public class SelectorControl : MonoBehaviour {
 	void Update() {
 		Movement();
 		string command = commands [command_index];
+		descriptionText.text = descriptions [command_index];
 		if (Input.GetKeyDown("z")) {
 			if (command == "attack") {
 				actionText.text = "Player attacks!";
