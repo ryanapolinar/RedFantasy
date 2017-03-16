@@ -29,7 +29,7 @@ public class SelectorControl : MonoBehaviour {
 			if (command == "attack") {
 				actionText.text = "Player attacks!";
                 //BattleStateManager.currentState = BattleStateManager.BattleStates.PlayerAttackSelection; 
-                player.GetComponent<PlayerAttack>().attacking = true;
+                player.GetComponent<Player>().attacking = true;
                 BattleStateManager.currentState = BattleStateManager.BattleStates.PlayerAction;
             } else if (command == "skill") {
 				actionText.text = "Player uses a skill!";

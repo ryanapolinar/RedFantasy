@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleStateManager : MonoBehaviour {
-    public GameObject Enemy;
+    public GameObject enemy;
     public GameObject Player;
 
     public GameObject menu;
@@ -32,7 +32,7 @@ public class BattleStateManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Debug.Log(currentState);
-        if (Enemy.GetComponent<Enemy>().hp == 0)
+        if (enemy.GetComponent<Enemy>().hp == 0)
         {
             currentState = BattleStates.Victory;
         }
@@ -62,7 +62,7 @@ public class BattleStateManager : MonoBehaviour {
                 currentState = BattleStates.EnemyAction;
                 break;
             case (BattleStates.EnemyAction):
-                EnemyAttack.myTurn = true;
+                Enemy.myTurn = true;
                 break;
             case (BattleStates.Victory):
                 Debug.Log("VICTORY");
