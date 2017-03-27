@@ -56,8 +56,26 @@ public class Wolf : MonoBehaviour {
     public int GenerateMove()
     {
         //Generates a random move for the Wolf.
-        //0: Attack the player
-        //1: Defend
-        return Random.Range(0, 2);
+        //0-6: Attack the player    (80% chance to attack)
+        //7-9: Defend               (20% chance to defend/wait)   
+        int result = Random.Range(0, 10);
+        switch (result)
+        {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+                result = 0;
+                break;
+            case 8:
+            case 9:
+                result = 1;
+                break;
+        }
+        return result;
     }
 }

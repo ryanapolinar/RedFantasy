@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour {
 
@@ -21,6 +22,9 @@ public class EndGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyUp(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("ApolinarGame");
+        }
+    }
 }

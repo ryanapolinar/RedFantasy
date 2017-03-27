@@ -58,7 +58,6 @@ public class ApolinarStateManager : MonoBehaviour {
                 break;
 
             case BattleStates.PlayerAction:
-                Debug.Log("PlayerAction state.");
                 //Disable the menu until the player's next turn
                 PlayerMenu.SetActive(false);
                 //Display animation based on player's selection
@@ -110,17 +109,17 @@ public class ApolinarStateManager : MonoBehaviour {
                     switch (WolfMove)
                     {
                         case 0:
-                            StartCoroutine(Wolf.AttackAnimation(Red, 2.5f));
-                            Invoke("CheckEndGame", 2.6f);
+                            StartCoroutine(Wolf.AttackAnimation(Red, 2f));
+                            Invoke("CheckEndGame", 2.1f);
                             break;
                         case 1:
-                            StartCoroutine(Wolf.DefendAnimation(Red, 2.5f));
+                            StartCoroutine(Wolf.DefendAnimation(Red, 2f));
                             break;
                     }
 
                     if (!gameOver)
                     {
-                        Invoke("ActivatePlayerMenu", 2.7f);
+                        Invoke("ActivatePlayerMenu", 2.2f);
                         currentState = BattleStates.PlayerTurn;
                     }
 
