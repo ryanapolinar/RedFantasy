@@ -13,7 +13,7 @@ public class Red : MonoBehaviour {
     public bool attacking = false;
     public bool attacked = false;
     public float timePassed = 0f;
-    public float movementSpeed = 20;
+    public float movementSpeed = 21;
     private Vector3 originalPosition;
 
     public Text RedHPText;
@@ -72,26 +72,38 @@ public class Red : MonoBehaviour {
             if (!attacked && transform.position.x < Wolf.transform.position.x - 1.5)
             {
                 //Move Red towards Wolf
+                if (this.GetComponent<Animator>().GetBool("red-idle"))
+                {
+                    this.GetComponent<Animator>().SetBool("red-idle", false);
+                    this.GetComponent<Animator>().SetTrigger("red-move");
+                }
                 transform.Translate(Vector3.right * movementSpeed * Time.deltaTime);
             }
             if (!attacked && transform.position.x >= Wolf.transform.position.x - 1.5 && !attacked)
             {
                 //If Red is at Wolf, play attack animation
-                this.GetComponent<Animator>().SetTrigger("red_attack");
+                this.GetComponent<Animator>().SetTrigger("red-attack");
                 attacked = true;
             }
-            if (attacked && transform.position.x > originalPosition.x && !this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("red-attack"))
+
+            //Pass time while attack animation plays
+            if (attacked) { timePassed += Time.deltaTime; }
+
+            if (attacked && transform.position.x > originalPosition.x && timePassed >= 0.5)
             {
                 //Move Red back to original position
+                this.GetComponent<Animator>().SetTrigger("red-move");
                 transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
             }
             if (attacked && transform.position.x <= originalPosition.x)
             {
                 //Red is back in original position, stop moving her.
-                Debug.Log("BACK AT ORIGINAL POSITION.");
+
                 transform.position = originalPosition;
+                this.GetComponent<Animator>().SetBool("red-idle", true);
                 attacking = false;
                 attacked = false;
+                timePassed = 0f;
             }
         }
 

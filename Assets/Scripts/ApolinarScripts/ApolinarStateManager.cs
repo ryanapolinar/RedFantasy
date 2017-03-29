@@ -17,8 +17,8 @@ public class ApolinarStateManager : MonoBehaviour {
 
     //Keeps track of the current state and whether the game is over
     public static BattleStates currentState;
-    public static bool PlayerActionRunning = false;
-    public static bool gameOver = false;
+    public static bool PlayerActionRunning;
+    public static bool gameOver;
 
     //Battle Units
     public Red Red;
@@ -30,6 +30,12 @@ public class ApolinarStateManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         currentState = BattleStates.PlayerTurn;
+        PlayerMenuScript.confirmed = false;
+        PlayerActionRunning = false;
+        gameOver = false;
+
+        Red.HP = 5;
+        Wolf.HP = 5;
 
         Red.DisplayHealth();
         Wolf.DisplayHealth();

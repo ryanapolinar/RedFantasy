@@ -33,7 +33,6 @@ public class BattleMenu : MonoBehaviour {
                 selection--;
             }
             DrawSelectedCommand();
-            //Debug.Log("selection: " + selection + " " + commands[selection]);
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S))
         {

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fef9aca24ca2e1248b343b754e28acc7
-timeCreated: 1490569892
+timeCreated: 1490764604
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,9 @@ TextureImporter:
     21300014: red-spritesheet_7
     21300016: red-spritesheet_8
     21300018: red-spritesheet_9
+    21300020: red-spritesheet_10
+    21300022: red-spritesheet_11
+    21300024: red-spritesheet_12
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -96,7 +99,7 @@ TextureImporter:
         width: 179
         height: 337
       alignment: 9
-      pivot: {x: 0.47049344, y: 0.27751726}
+      pivot: {x: 0.465, y: 0.275}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -109,7 +112,7 @@ TextureImporter:
         width: 179
         height: 337
       alignment: 9
-      pivot: {x: 0.4704934, y: 0.2775173}
+      pivot: {x: 0.465, y: 0.275}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -122,7 +125,7 @@ TextureImporter:
         width: 179
         height: 337
       alignment: 9
-      pivot: {x: 0.4704934, y: 0.2775173}
+      pivot: {x: 0.465, y: 0.275}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -135,7 +138,7 @@ TextureImporter:
         width: 171
         height: 333
       alignment: 9
-      pivot: {x: 0.46719414, y: 0.28661385}
+      pivot: {x: 0.465, y: 0.29}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -148,7 +151,7 @@ TextureImporter:
         width: 226
         height: 333
       alignment: 9
-      pivot: {x: 0.33451885, y: 0.29222926}
+      pivot: {x: 0.3428828, y: 0.29}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -161,7 +164,7 @@ TextureImporter:
         width: 235
         height: 331
       alignment: 9
-      pivot: {x: 0.2931134, y: 0.28532442}
+      pivot: {x: 0.29632983, y: 0.29}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -174,7 +177,7 @@ TextureImporter:
         width: 261
         height: 345
       alignment: 9
-      pivot: {x: 0.2062551, y: 0.26964536}
+      pivot: {x: 0.215, y: 0.29}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -187,7 +190,7 @@ TextureImporter:
         width: 255
         height: 334
       alignment: 9
-      pivot: {x: 0.21034294, y: 0.28725263}
+      pivot: {x: 0.21589786, y: 0.29}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -200,7 +203,7 @@ TextureImporter:
         width: 193
         height: 329
       alignment: 9
-      pivot: {x: 0.33044624, y: 0.2897032}
+      pivot: {x: 0.33465925, y: 0.29}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -213,7 +216,46 @@ TextureImporter:
         width: 187
         height: 335
       alignment: 9
-      pivot: {x: 0.40000352, y: 0.28509685}
+      pivot: {x: 0.40314668, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: red-spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 8
+        width: 152
+        height: 262
+      alignment: 9
+      pivot: {x: 0.385, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: red-spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 8
+        width: 181
+        height: 362
+      alignment: 9
+      pivot: {x: 0.385, y: 0.26}
+      border: {x: 0, y: 20, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: red-spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 8
+        width: 171
+        height: 311
+      alignment: 9
+      pivot: {x: 0.385, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
