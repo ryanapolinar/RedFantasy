@@ -24,7 +24,7 @@ public class EndGame : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyUp(KeyCode.Escape))
         {
-            SceneManager.LoadScene("ApolinarGame");
+            SceneManager.LoadScene("TitleScreen");
         }
     }
 }

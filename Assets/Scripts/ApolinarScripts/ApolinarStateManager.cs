@@ -34,9 +34,6 @@ public class ApolinarStateManager : MonoBehaviour {
         PlayerActionRunning = false;
         gameOver = false;
 
-        Red.HP = 5;
-        Wolf.HP = 5;
-
         Red.DisplayHealth();
         Wolf.DisplayHealth();
     }
@@ -49,7 +46,8 @@ public class ApolinarStateManager : MonoBehaviour {
 
                 //Get the player's input and confirm their selection
                 PlayerMenuScript.SelectionMove();
-                PlayerMenuScript.ConfirmSelection();
+                if (PlayerMenu.activeSelf)
+                    PlayerMenuScript.ConfirmSelection();
 
                 //Switch state to PlayerAction when confirmed
                 if (PlayerMenuScript.confirmed)
@@ -66,6 +64,7 @@ public class ApolinarStateManager : MonoBehaviour {
             case BattleStates.PlayerAction:
                 //Disable the menu until the player's next turn
                 PlayerMenu.SetActive(false);
+                PlayerMenuScript.AttackPointer.SetActive(false);
                 //Display animation based on player's selection
 
                 if (!PlayerActionRunning)
@@ -78,23 +77,10 @@ public class ApolinarStateManager : MonoBehaviour {
                             Invoke("CheckEndGame", 1.1f);
                             break;
                         case 1:
-                            Debug.Log("Red selects a skill!");
-                            if (!gameOver)
-                            {
-                                PlayerActionRunning = false;
-                                currentState = BattleStates.EnemyAction;
-                            }
+                            StartCoroutine(Red.HealAction(1f));
                             break;
                         case 2:
-                            Debug.Log("Red chooses an item!");
-                            if (!gameOver)
-                            {
-                                PlayerActionRunning = false;
-                                currentState = BattleStates.EnemyAction;
-                            }
-                            break;
-                        case 3:
-                            Debug.Log("Red defends!");
+                            Debug.Log("Red waits!");
                             if (!gameOver)
                             {
                                 PlayerActionRunning = false;
@@ -115,7 +101,7 @@ public class ApolinarStateManager : MonoBehaviour {
                     switch (WolfMove)
                     {
                         case 0:
-                            StartCoroutine(Wolf.AttackAnimation(Red, 2f));
+                            StartCoroutine(Wolf.AttackAction(Red, 2f));
                             Invoke("CheckEndGame", 2.1f);
                             break;
                         case 1:
@@ -176,6 +162,7 @@ public class ApolinarStateManager : MonoBehaviour {
     void ActivatePlayerMenu()
     {
         PlayerMenu.SetActive(true);
+        PlayerMenuScript.DrawSelectedCommand();
     }
 
 }

@@ -5,38 +5,51 @@ using UnityEngine.UI;
 
 public class Red : MonoBehaviour {
 
+    public int MAXHP = 5;
     public int HP;
     public int ATK;
 
     //Fields for attacking animation/movement
     public GameObject Wolf;
-    public bool attacking = false;
-    public bool attacked = false;
-    public float timePassed = 0f;
+    public bool attacking;
+    public bool attacked;
+    public float timePassed;
     public float movementSpeed = 21;
     private Vector3 originalPosition;
+
+    AudioSource redAttack;
 
     public Text RedHPText;
 
 	// Use this for initialization
 	void Start () {
-        HP = 5;
+        HP = MAXHP;
         ATK = 1;
 
-        originalPosition = transform.position;		
+        attacking = false;
+        attacked = false;
+        timePassed = 0f;
+        originalPosition = transform.position;
+
+        redAttack = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        //Debug.Log("red-attack playing: " + this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("red-attack"));
         AttackAnimation();
 	}
 
     public int Attack()
     {
-        int damageIncrease = Random.Range(0, 2);
+        int damageIncrease = Random.Range(0, 3);
         return ATK + damageIncrease;
+    }
+
+    public int Heal()
+    {
+        int heal = Random.Range(3, 5);
+        return heal;
     }
 
     public IEnumerator AttackAction(Wolf wolf, float delayTime)
@@ -65,6 +78,30 @@ public class Red : MonoBehaviour {
         wolf.DisplayHealth();
     }
 
+    public IEnumerator HealAction(float delayTime)
+    {
+        GetComponent<SpriteRenderer>().color = new Color(155, 255, 155);
+        Debug.Log("color: " + GetComponent<SpriteRenderer>().color);
+        yield return new WaitForSeconds(delayTime);
+
+        int restoredHealth = Heal();
+        if (HP + restoredHealth > MAXHP)
+            restoredHealth = MAXHP - HP;
+
+        HP += restoredHealth;
+
+        Debug.Log("Red heals for " + restoredHealth + " health!");
+
+        if (!ApolinarStateManager.gameOver)
+        {
+            ApolinarStateManager.PlayerActionRunning = false;
+            ApolinarStateManager.currentState = ApolinarStateManager.BattleStates.EnemyAction;
+        }
+
+        GetComponent<SpriteRenderer>().color = Color.white;
+        DisplayHealth();
+    }
+
     void AttackAnimation()
     {
         if (attacking)
@@ -83,16 +120,23 @@ public class Red : MonoBehaviour {
             {
                 //If Red is at Wolf, play attack animation
                 this.GetComponent<Animator>().SetTrigger("red-attack");
+                redAttack.Play();
+                Wolf.GetComponent<Animator>().SetBool("wolf-hit", true);
+                Wolf.GetComponent<Animator>().SetBool("wolf-idle", false);
+                
+
                 attacked = true;
             }
 
             //Pass time while attack animation plays
             if (attacked) { timePassed += Time.deltaTime; }
 
-            if (attacked && transform.position.x > originalPosition.x && timePassed >= 0.5)
+            if (attacked && transform.position.x > originalPosition.x && timePassed >= 0.48)
             {
                 //Move Red back to original position
                 this.GetComponent<Animator>().SetTrigger("red-move");
+                Wolf.GetComponent<Animator>().SetBool("wolf-hit", false);
+                Wolf.GetComponent<Animator>().SetBool("wolf-idle", true);
                 transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
             }
             if (attacked && transform.position.x <= originalPosition.x)

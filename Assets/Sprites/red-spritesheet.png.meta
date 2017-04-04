@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fef9aca24ca2e1248b343b754e28acc7
-timeCreated: 1490764604
+timeCreated: 1491255087
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -17,6 +17,8 @@ TextureImporter:
     21300020: red-spritesheet_10
     21300022: red-spritesheet_11
     21300024: red-spritesheet_12
+    21300026: red-spritesheet_13
+    21300028: red-spritesheet_14
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -94,12 +96,12 @@ TextureImporter:
       name: red-spritesheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 717
+        x: 17
+        y: 1076
         width: 179
         height: 337
       alignment: 9
-      pivot: {x: 0.465, y: 0.275}
+      pivot: {x: 0.463, y: 0.283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -107,12 +109,12 @@ TextureImporter:
       name: red-spritesheet_1
       rect:
         serializedVersion: 2
-        x: 204
-        y: 717
+        x: 221
+        y: 1076
         width: 179
         height: 337
       alignment: 9
-      pivot: {x: 0.465, y: 0.275}
+      pivot: {x: 0.463, y: 0.283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -120,12 +122,12 @@ TextureImporter:
       name: red-spritesheet_2
       rect:
         serializedVersion: 2
-        x: 400
-        y: 717
+        x: 417
+        y: 1076
         width: 179
         height: 337
       alignment: 9
-      pivot: {x: 0.465, y: 0.275}
+      pivot: {x: 0.463, y: 0.283}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -133,12 +135,12 @@ TextureImporter:
       name: red-spritesheet_3
       rect:
         serializedVersion: 2
-        x: 185
-        y: 372
+        x: 46
+        y: 673
         width: 171
         height: 333
       alignment: 9
-      pivot: {x: 0.465, y: 0.29}
+      pivot: {x: 0.46, y: 0.286}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -146,12 +148,12 @@ TextureImporter:
       name: red-spritesheet_4
       rect:
         serializedVersion: 2
-        x: 363
-        y: 372
+        x: 293
+        y: 673
         width: 226
         height: 333
       alignment: 9
-      pivot: {x: 0.3428828, y: 0.29}
+      pivot: {x: 0.3359194, y: 0.286}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -159,12 +161,12 @@ TextureImporter:
       name: red-spritesheet_5
       rect:
         serializedVersion: 2
-        x: 592
-        y: 370
+        x: 558
+        y: 671
         width: 235
         height: 331
       alignment: 9
-      pivot: {x: 0.29632983, y: 0.29}
+      pivot: {x: 0.29236516, y: 0.286}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -173,11 +175,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 846
-        y: 372
+        y: 673
         width: 261
         height: 345
       alignment: 9
-      pivot: {x: 0.215, y: 0.29}
+      pivot: {x: 0.19925289, y: 0.26749888}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -186,11 +188,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1108
-        y: 372
+        y: 673
         width: 255
         height: 334
       alignment: 9
-      pivot: {x: 0.21589786, y: 0.29}
+      pivot: {x: 0.2046559, y: 0.27639532}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -199,11 +201,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1365
-        y: 372
+        y: 673
         width: 193
         height: 329
       alignment: 9
-      pivot: {x: 0.33465925, y: 0.29}
+      pivot: {x: 0.32412577, y: 0.286}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -212,11 +214,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1572
-        y: 372
+        y: 673
         width: 187
         height: 335
       alignment: 9
-      pivot: {x: 0.40314668, y: 0.29}
+      pivot: {x: 0.3922243, y: 0.286}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -225,11 +227,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 213
-        y: 8
+        y: 285
         width: 152
         height: 262
       alignment: 9
-      pivot: {x: 0.385, y: 0.35}
+      pivot: {x: 0.61958957, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -238,12 +240,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 427
-        y: 8
+        y: 305
         width: 181
-        height: 362
+        height: 342
       alignment: 9
-      pivot: {x: 0.385, y: 0.26}
-      border: {x: 0, y: 20, z: 0, w: 0}
+      pivot: {x: 0.5296813, y: 0.28}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
@@ -251,11 +253,37 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 634
-        y: 8
+        y: 285
         width: 171
         height: 311
       alignment: 9
-      pivot: {x: 0.385, y: 0.2}
+      pivot: {x: 0.42288476, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: red-spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 285
+        width: 217
+        height: 328
+      alignment: 9
+      pivot: {x: 0.6, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: red-spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 285
+        width: 217
+        height: 328
+      alignment: 9
+      pivot: {x: 0.6, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
