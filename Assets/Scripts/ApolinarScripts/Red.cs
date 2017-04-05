@@ -18,6 +18,7 @@ public class Red : MonoBehaviour {
     private Vector3 originalPosition;
 
     AudioSource redAttack;
+    public GameObject healEffect;
 
     public Text RedHPText;
 
@@ -80,8 +81,7 @@ public class Red : MonoBehaviour {
 
     public IEnumerator HealAction(float delayTime)
     {
-        GetComponent<SpriteRenderer>().color = new Color(155, 255, 155);
-        Debug.Log("color: " + GetComponent<SpriteRenderer>().color);
+        healEffect.SetActive(true);
         yield return new WaitForSeconds(delayTime);
 
         int restoredHealth = Heal();
@@ -89,6 +89,7 @@ public class Red : MonoBehaviour {
             restoredHealth = MAXHP - HP;
 
         HP += restoredHealth;
+        healEffect.SetActive(false);
 
         Debug.Log("Red heals for " + restoredHealth + " health!");
 
@@ -155,6 +156,7 @@ public class Red : MonoBehaviour {
 
     public void DisplayHealth()
     {
-        RedHPText.text = "Red HP: " + HP;
+        RedHPText.text = "Red HP: " + HP + " / " + MAXHP;
     }
+
 }

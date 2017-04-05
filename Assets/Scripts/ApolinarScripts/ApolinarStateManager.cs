@@ -25,7 +25,7 @@ public class ApolinarStateManager : MonoBehaviour {
     public Wolf Wolf;
     //Battle Menu to communicate player's inputs
     public BattleMenu PlayerMenuScript;
-    public GameObject PlayerMenu;   //for going active/inactive
+    public GameObject PlayerMenu, InfoBox, PartyBox, WolfHealthText;   //for going active/inactive
 
     // Use this for initialization
     void Start () {
@@ -64,7 +64,8 @@ public class ApolinarStateManager : MonoBehaviour {
             case BattleStates.PlayerAction:
                 //Disable the menu until the player's next turn
                 PlayerMenu.SetActive(false);
-                PlayerMenuScript.AttackPointer.SetActive(false);
+                InfoBox.SetActive(false);
+                
                 //Display animation based on player's selection
 
                 if (!PlayerActionRunning)
@@ -73,6 +74,7 @@ public class ApolinarStateManager : MonoBehaviour {
                     switch (PlayerMenuScript.selection)
                     {
                         case 0:
+                            PartyBox.SetActive(false);
                             StartCoroutine(Red.AttackAction(Wolf, 1f));
                             Invoke("CheckEndGame", 1.1f);
                             break;
@@ -80,6 +82,7 @@ public class ApolinarStateManager : MonoBehaviour {
                             StartCoroutine(Red.HealAction(1f));
                             break;
                         case 2:
+                            PartyBox.SetActive(false);
                             Debug.Log("Red waits!");
                             if (!gameOver)
                             {
@@ -161,6 +164,8 @@ public class ApolinarStateManager : MonoBehaviour {
 
     void ActivatePlayerMenu()
     {
+        InfoBox.SetActive(true);
+        PartyBox.SetActive(true);
         PlayerMenu.SetActive(true);
         PlayerMenuScript.DrawSelectedCommand();
     }

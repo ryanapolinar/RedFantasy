@@ -7,7 +7,7 @@ public class BattleMenu : MonoBehaviour {
 
     public int selection = 0;
     public bool confirmed = false;
-    private string[] commandInfo = new string[3] { "Physical knife strike.", "Uses healing magic.", "Do nothing."};
+    private string[] commandInfo = new string[3] { "Strike with a knife.", "Use healing magic.", "Do nothing."};
 
     public Text AttackText, HealText, WaitText, CommandInfoText;
     public GameObject AttackPointer, HealPointer, WaitPointer;

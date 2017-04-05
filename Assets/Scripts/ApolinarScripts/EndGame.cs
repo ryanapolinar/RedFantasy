@@ -6,16 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour {
 
+    public GameObject WinGrandma, LoseBasket;
+
     public Text EndGameText;
 
 	// Use this for initialization
 	void Start () {
+        WinGrandma.SetActive(false);
+        LoseBasket.SetActive(false);
         if (ApolinarStateManager.currentState == ApolinarStateManager.BattleStates.Victory)
         {
+            WinGrandma.SetActive(true);
             EndGameText.text = "Victory!";
         } else if (ApolinarStateManager.currentState == ApolinarStateManager.BattleStates.Defeat)
         {
-            EndGameText.text = "Defeat!";
+            LoseBasket.SetActive(true);
+            EndGameText.text = "You lost.";
         }
 
     }

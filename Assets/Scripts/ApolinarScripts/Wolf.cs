@@ -123,7 +123,7 @@ public class Wolf : MonoBehaviour {
 
     public void DisplayHealth()
     {
-        WolfHPText.text = "Wolf HP: " + HP;
+        WolfHPText.text = "HP: " + HP;
     }
 
     public int GenerateMove()
