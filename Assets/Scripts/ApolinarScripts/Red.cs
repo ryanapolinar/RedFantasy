@@ -17,7 +17,7 @@ public class Red : MonoBehaviour {
     public float movementSpeed = 21;
     private Vector3 originalPosition;
 
-    AudioSource redAttack;
+    AudioSource[] sounds; 
     public GameObject healEffect;
 
     public Text RedHPText;
@@ -32,7 +32,7 @@ public class Red : MonoBehaviour {
         timePassed = 0f;
         originalPosition = transform.position;
 
-        redAttack = GetComponent<AudioSource>();
+        sounds = GetComponents<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -82,6 +82,7 @@ public class Red : MonoBehaviour {
     public IEnumerator HealAction(float delayTime)
     {
         healEffect.SetActive(true);
+        sounds[1].Play();
         yield return new WaitForSeconds(delayTime);
 
         int restoredHealth = Heal();
@@ -121,7 +122,7 @@ public class Red : MonoBehaviour {
             {
                 //If Red is at Wolf, play attack animation
                 this.GetComponent<Animator>().SetTrigger("red-attack");
-                redAttack.Play();
+                sounds[0].Play();
                 Wolf.GetComponent<Animator>().SetBool("wolf-hit", true);
                 Wolf.GetComponent<Animator>().SetBool("wolf-idle", false);
                 
